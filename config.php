@@ -599,7 +599,7 @@
 
 	// What client version and server port are you using on this OT?
 	// Used for the Downloads page.
-	$config['client'] = 11.44; // 954 = client 9.54
+	$config['client'] = 1144; // 954 = client 9.54
 
 	 // Download link to client.
 	$config['client_download'] = 'http://clients.halfaway.net/windows.php?tibia='. $config['client'] .'';
@@ -702,7 +702,7 @@
 
 	// What kind of computer are you hosting this website on?
 	// Available options: LINUX or WINDOWS
-	$config['os'] = LINUX;
+	$config['os'] = "LINUX";
 
 	// Measure how much players are lagging in-game. (Not completed).
 	$config['ping'] = false;
