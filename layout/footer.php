@@ -3,7 +3,7 @@
 </div>
 <footer>
 <p>&copy; <?php echo $config['site_title'];?>.
-<?php 
+<?php
 	echo 'Server date and clock is: '. getClock(false, true) .' Page generated in '. elapsedTime() .' seconds. Q: '.$aacQueries;
 ?>
   <a href="http://www.css3templates.co.uk">Design: css3templates.co.uk</a>. Engine: <a href="credits.php">Znote AAC</a></p>

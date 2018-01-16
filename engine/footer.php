@@ -1,5 +1,4 @@
 <footer>
-	&copy; Znote AAC.
 	<?php
 	$time = microtime();
 	$time = explode(' ', $time);
