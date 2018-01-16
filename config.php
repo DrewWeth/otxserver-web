@@ -18,7 +18,7 @@
 	$config['CustomVersion'] = false;
 
 	$config['site_title'] = 'Creative Tibia';
-	$config['site_title_context'] = 'Where everyone is a gamemaster';
+	$config['site_title_context'] = 'Where everyone is a GM';
 	$config['site_url'] = "http://creativetibia.com";
 
 	// Path to server folder without / Example: C:\Users\Alvaro\Documents\GitHub\forgottenserver
@@ -128,7 +128,7 @@
 	);
 
 	//Achivements based on "https://github.com/PrinterLUA/FORGOTTENSERVER-ORTS/blob/master/data/lib/achievements_lib.lua"  (TFS 1.0)
-	$config['Ach'] = true;
+	$config['Ach'] = false;
 	$config['achievements'] = array(
 		35000 => array(
 			'First Dragon', //name
@@ -595,7 +595,7 @@
 
 	// Use htaccess rewrite? (basically this makes website.com/username work instead of website.com/characterprofile.php?name=username
 	// Linux users needs to enable mod_rewrite php extention to make it work properly, so set it to false if your lost and using Linux.
-	$config['htwrite'] = true;
+	$config['htwrite'] = false;
 
 	// What client version and server port are you using on this OT?
 	// Used for the Downloads page.
