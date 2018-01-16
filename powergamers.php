@@ -1,6 +1,6 @@
 <?php
 require_once 'engine/init.php';
-include 'layout/overall/header.php'; 
+include 'layout/overall/header.php';
 if (!$config['powergamers']['enabled']) {
 echo 'This page has been disabled at config.php.';
 include 'layout/overall/footer.php';
@@ -24,13 +24,13 @@ include 'layout/overall/footer.php';
 	}
 	$limit = $config['powergamers']['limit'];
 
-	if(!empty($days) && !empty($vocation)) 
+	if(!empty($days) && !empty($vocation))
 		$znotePlayers = mysql_select_multi('SELECT `a`.`id`, `b`.`player_id`, `a`.`name`, `a`.`vocation`, `a`.`level`, `a`.`group_id`, `a`.`experience`, `b`.`exphist_lastexp`, `b`.`exphist1`, `b`.`exphist2`, `b`.`exphist3`, `b`.`exphist4`, `b`.`exphist5`, `b`.`exphist6`, `b`.`exphist7`, (`a`.`experience` - `b`.`exphist_lastexp`) AS `expdiff` FROM `players` `a` JOIN `znote_players` `b` ON `a`.`id` = `b`.`player_id`  WHERE `a`.`group_id` < 2 AND `a`.`vocation`='. (int)$vocation .' OR `a`.`vocation`='. ((int)$vocation +4) .' ORDER BY `exphist' . (int)$days . '` DESC LIMIT '.$limit);
 	elseif(empty($days) && !empty($vocation)) {
 		$znotePlayers = mysql_select_multi('SELECT `a`.`id`, `b`.`player_id`, `a`.`name`, `a`.`vocation`, `a`.`level`, `a`.`group_id`, `a`.`experience`, `b`.`exphist_lastexp`, `b`.`exphist1`, `b`.`exphist2`, `b`.`exphist3`, `b`.`exphist4`, `b`.`exphist5`, `b`.`exphist6`, `b`.`exphist7`,   (`a`.`experience` - `b`.`exphist_lastexp`)  AS `expdiff` FROM `players` `a` JOIN `znote_players` `b` ON `a`.`id` = `b`.`player_id`  WHERE `a`.`group_id` < 2 AND `a`.`vocation`='. (int)$vocation .' OR `a`.`vocation`='. ((int)$vocation +4) .' ORDER BY `expdiff` DESC LIMIT '.$limit);
-	}elseif(!empty($days) && empty($vocation)) 
+	}elseif(!empty($days) && empty($vocation))
 		$znotePlayers = mysql_select_multi('SELECT `a`.`id`, `b`.`player_id`, `a`.`name`, `a`.`vocation`, `a`.`level`, `a`.`group_id`, `a`.`experience`, `b`.`exphist_lastexp`, `b`.`exphist1`, `b`.`exphist2`, `b`.`exphist3`, `b`.`exphist4`, `b`.`exphist5`, `b`.`exphist6`, `b`.`exphist7`, (`a`.`experience` - `b`.`exphist_lastexp`) AS `expdiff` FROM `players` `a` JOIN `znote_players` `b` ON `a`.`id` = `b`.`player_id`  WHERE `a`.`group_id` < 2 ORDER BY `exphist' . (int)$days . '` DESC LIMIT '.$limit);
-	else 
+	else
 		$znotePlayers = mysql_select_multi('SELECT `a`.`id`, `b`.`player_id`, `a`.`name`, `a`.`vocation`, `a`.`level`, `a`.`group_id`, `a`.`experience`, `b`.`exphist_lastexp`, `b`.`exphist1`, `b`.`exphist2`, `b`.`exphist3`, `b`.`exphist4`, `b`.`exphist5`, `b`.`exphist6`, `b`.`exphist7`,   (`a`.`experience` - `b`.`exphist_lastexp`)  AS `expdiff` FROM `players` `a` JOIN `znote_players` `b` ON `a`.`id` = `b`.`player_id`  WHERE `a`.`group_id` < 2 ORDER BY `expdiff` DESC LIMIT '.$limit);
 
 	$showVoc = (!empty($vocation)) ? $vocation : 0;
@@ -63,10 +63,10 @@ include 'layout/overall/footer.php';
 		<td>Name</td>
 		<?php
 	for($i = 3; $i >= 2; $i--)
-		echo ($days == $i) ? '<td class="pull-right" width="70%"><b>'.$i.' Days Ago</b></td>' : '';
-		echo ($days == 1) ? '<td class="pull-right" width="70%"><b>Yesterday</b></td>' : '';
-		echo ($today) ? '<td class="pull-right" width="70%"><b>Today</b></td>' : '';
-		echo ($days == 4) ? '<td class="pull-right" width="70%"><b>Total</b></td>' : '';
+		echo ($days == $i) ? '<td class="pull-right" width="70%"><b>Exp '.$i.' Days Ago</b></td>' : '';
+		echo ($days == 1) ? '<td class="pull-right" width="70%"><b>Exp Yesterday</b></td>' : '';
+		echo ($today) ? '<td class="pull-right" width="70%"><b>Exp Today</b></td>' : '';
+		echo ($days == 4) ? '<td class="pull-right" width="70%"><b>Exp Total</b></td>' : '';
 		echo '</tr>';
 
 	$number_of_rows = 0;
@@ -78,9 +78,9 @@ include 'layout/overall/footer.php';
 			echo '<td><a href="characterprofile.php?name=' .$player['name']. '">' .$player['name']. '</a>';
 			echo '<br> '. ($player['level']. ' '.htmlspecialchars(vocation_id_to_name($player['vocation'])) ).' ';
 			echo ($days == 3) ? '<td><center>'. number_format($player['exphist3']) .'</center></td>' : '';
-			echo ($days == 2) ? '<td><center>'. $player['exphist2'] .'</center></td>' : '';
-			echo ($days == 1) ? '<td><center>'. $player['exphist1'] .'</center></td>' : '';
-			echo ($today == true) ? '<td><center>'. ($player['experience']-$player['exphist_lastexp']) .'</center></td>' : '';
+			echo ($days == 2) ? '<td><center>'. number_format($player['exphist2']) .'</center></td>' : '';
+			echo ($days == 1) ? '<td><center>'. number_format($player['exphist1']) .'</center></td>' : '';
+			echo ($today == true) ? '<td><center>'. number_format($player['experience']-$player['exphist_lastexp']) .'</center></td>' : '';
 			echo '</tr>';
 		}
 	}

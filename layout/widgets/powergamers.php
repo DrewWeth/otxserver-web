@@ -16,7 +16,7 @@
 	if ($players) {
 		$count = 1;
 		foreach($players as $player) {
-			echo "$count - <a href='characterprofile.php?name=". $player['name']. "'>". $player['name']. "</a> (". $player['level'] .") ". ($player['experience']-$player['exphist_lastexp'])  ."<br>";
+			echo "$count - <a href='characterprofile.php?name=". $player['name']. "'>". $player['name']. "</a> (". $player['level'] .") ". number_format($player['experience']-$player['exphist_lastexp'])  ." exp<br>";
 			$count++;
 		}
 	}
