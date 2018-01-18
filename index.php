@@ -8,9 +8,9 @@ require_once 'engine/init.php'; include 'layout/overall/header.php';
 	}
 	$view = (isset($_GET['view'])) ? urlencode($_GET['view']) : "";
 	?>
-	
+
 	<center>
-		<iframe src="http://free.timeanddate.com/countdown/i62nb8pq/n605/cf100/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw576/szh243/tatCreative%20Tibia%20Opening/tac000/tptTime%20since%20Creative%20Tibia%20opened/tpc000/mac000/mpc000/iso2018-01-19T17:00:00" allowTransparency="true" frameborder="0" width="576" height="243"></iframe>
+		<iframe src="http://free.timeanddate.com/countdown/i62nbu99/n70/cf12/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw576/szh243/tatCreative%20Server%20Opening/tac000/tptTime%20Since%20Start/tpc000/mac000/mpc000/iso2018-01-19T18:00:00" allowTransparency="true" frameborder="0" width="392" height="122"></iframe>
 	</center>
 
 	<?php
