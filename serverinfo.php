@@ -2,13 +2,13 @@
 // Calculate integer values into days, hours, minutes, seconds
 function toDuration($ms) {
 	$duration['day'] = $ms / (24 * 60 * 60 * 1000);
-	if (($duration['day'] - (int)$duration['day']) > 0) 
+	if (($duration['day'] - (int)$duration['day']) > 0)
 		$duration['hour'] = ($duration['day'] - (int)$duration['day']) * 24;
 	if (isset($duration['hour'])) {
-		if (($duration['hour'] - (int)$duration['hour']) > 0) 
+		if (($duration['hour'] - (int)$duration['hour']) > 0)
 			$duration['minute'] = ($duration['hour'] - (int)$duration['hour']) * 60;
 		if (isset($duration['minute'])) {
-			if (($duration['minute'] - (int)$duration['minute']) > 0) 
+			if (($duration['minute'] - (int)$duration['minute']) > 0)
 				$duration['second'] = ($duration['minute'] - (int)$duration['minute']) * 60;
 		}
 	}
@@ -90,8 +90,7 @@ if (user_logged_in() && is_admin($user_data)) {
 			'worldType',
 			'hotkeyAimbotEnabled',
 			'protectionLevel',
-			'killsToRedSkull',
-			'killsToBlackSkull',
+			'dayKillsToRedSkull',
 			'pzLocked',
 			'removeChargesFromRunes',
 			'timeToDecreaseFrags',
@@ -127,7 +126,6 @@ if (user_logged_in() && is_admin($user_data)) {
 			'loginPort' 				=> 'loginProtocolPort',
 			'rateExperienceFromPlayers' => 'experienceByKillingPlayers',
 			'dailyFragsToRedSkull' 		=> 'killsToRedSkull',
-			'dailyFragsToBlackSkull' 	=> 'killsToBlackSkull',
 			'removeRuneCharges' 		=> 'removeChargesFromRunes',
 			'stairhopDelay' 			=> 'stairJumpExhaustion',
 			'housePriceEachSquare' 		=> 'housePriceEachSQM',
@@ -296,10 +294,6 @@ $stages = false;
 				<td><?php echo $luaConfig['killsToRedSkull']; ?></td>
 			</tr>
 			<tr>
-				<td>Kills to black skull</td>
-				<td><?php echo $luaConfig['killsToBlackSkull']; ?></td>
-			</tr>
-			<tr>
 				<td>Remove rune charges</td>
 				<td><?php echo toYesNo($luaConfig['removeChargesFromRunes']); ?></td>
 			</tr>
@@ -340,6 +334,14 @@ $stages = false;
 		<tbody>
 			<tr class="yellow">
 				<td colspan="2">Other information</td>
+			</tr>
+			<tr>
+				<td>Command for GM mode</td>
+				<td>/gm</td>
+			</tr>
+			<tr>
+				<td>Help command</td>
+				<td>/help</td>
 			</tr>
 			<tr>
 				<td>Free premium</td>

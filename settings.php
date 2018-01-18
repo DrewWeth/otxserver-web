@@ -55,7 +55,7 @@ if (isset($_GET['success']) === true && empty($_GET['success']) === true) {
 	<form action="" method="post">
 		<ul>
 			<li>
-				email:<br>
+				Email:<br>
 				<input type="text" name="new_email" value="<?php echo $user_data['email']; ?>">
 			</li>
 			<li>

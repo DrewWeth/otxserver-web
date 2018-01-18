@@ -7,7 +7,13 @@ require_once 'engine/init.php'; include 'layout/overall/header.php';
 		$page = (int)$_GET['page'];
 	}
 	$view = (isset($_GET['view'])) ? urlencode($_GET['view']) : "";
+	?>
+	
+	<center>
+		<iframe src="http://free.timeanddate.com/countdown/i62nb8pq/n605/cf100/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw576/szh243/tatCreative%20Tibia%20Opening/tac000/tptTime%20since%20Creative%20Tibia%20opened/tpc000/mac000/mpc000/iso2018-01-19T17:00:00" allowTransparency="true" frameborder="0" width="576" height="243"></iframe>
+	</center>
 
+	<?php
 	if ($config['allowSubPages'] && file_exists("layout/sub/index.php")) include 'layout/sub/index.php';
 	else {
 		if ($config['UseChangelogTicker']) {
