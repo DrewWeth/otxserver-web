@@ -5,6 +5,16 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="layout/css/style.css" />
   <!-- modernizr enables HTML5 elements and feature detects -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112686868-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-112686868-1');
+  </script>
   <script type="text/javascript" src="layout/js/modernizr-1.5.min.js"></script>
   <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
